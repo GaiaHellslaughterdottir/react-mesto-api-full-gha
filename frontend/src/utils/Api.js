@@ -103,15 +103,16 @@ class Api {
   }
 
   _request(url, options) {
+    const token = localStorage.getItem('token');
+    if (token !== null) {
+      options.headers.authorization = `Bearer ${token}`;
+    }
     return fetch(url, options).then(this._checkResponse)
   }
 
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-70',
-  headers: {
-    authorization: 'e4b06db3-40f1-486d-92cb-ac0fc2cec497',
-    'Content-Type': 'application/json'
-  }
+  baseUrl: 'https://564148.msk-kvm.ru/backend',
+  headers: {'Content-Type': 'application/json'}
 });

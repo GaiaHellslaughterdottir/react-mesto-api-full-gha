@@ -59,5 +59,5 @@ export default class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: 'https://auth.nomoreparties.co',
+  baseUrl: 'https://564148.msk-kvm.ru/backend',
 });

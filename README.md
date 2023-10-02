@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 45.140.19.114
 
-Frontend https://...
+Frontend https://564148.msk-kvm.ru
 
-Backend https://...
+Backend https://564148.msk-kvm.ru/backend

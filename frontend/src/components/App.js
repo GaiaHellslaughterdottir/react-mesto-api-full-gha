@@ -44,7 +44,7 @@ function App() {
      return () => {
       Promise.all([api.getUserProfileInfo(), api.getInitialCards()])
         .then(([userInfo, cardList]) => {
-          setCurrentUser(userInfo.data);
+          setCurrentUser(userInfo);
           if (cardList.length > 0) {
             setCards(cardList);
           }
@@ -70,7 +70,7 @@ function App() {
   }, [isOpen]);
 
   function handleCardLike(card) {
-    const isLiked = !(card.likes.some(i => i._id === currentUser._id));
+    const isLiked = !(card.likes.some(i => i === currentUser._id));
 
     if (isLiked) {
       api.addPlaceLike(card._id)

@@ -1,0 +1,14 @@
+.form__field_dark-theme {
+  background-color: black;
+  border-bottom: rgba(204, 204, 204, 1) solid 2px;
+  margin: 0;
+  color: white;
+}
+
+.form__field_dark-theme::placeholder {
+  color: rgba(204, 204, 204, 1);
+}
+
+.form__field_dark-theme:first-of-type {
+  margin: 0;
+}

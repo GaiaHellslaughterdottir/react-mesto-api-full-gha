@@ -1,0 +1,9 @@
+.profile__avatar-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  text-decoration: none;
+  border: none;
+  position: relative;
+  padding: 0;
+}

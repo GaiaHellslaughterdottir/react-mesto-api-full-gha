@@ -1,0 +1,10 @@
+.element__basket {
+  background-image: url("../../../images/basket.svg");
+  width: 18px;
+  height: 19px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  margin: 20px 20px auto 244px;
+}

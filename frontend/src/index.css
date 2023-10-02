@@ -1,0 +1,76 @@
+@import "vendor/normalize.css";
+
+@import "vendor/fonts/Inter/fonts.css";
+
+@import "blocks/page/page.css";
+
+@import "blocks/header/header.css";
+@import "blocks/header/__wrapper/header__wrapper.css";
+@import "blocks/header/__email/header__email.css";
+@import "blocks/logo/logo.css";
+
+@import "blocks/main/main.css";
+
+@import "blocks/profile/profile.css";
+@import "blocks/avatar/avatar.css";
+@import "blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css";
+@import "blocks/profile/__avatar-button/profile__avatar-button.css";
+
+@import "blocks/profile/__info/profile__info.css";
+@import "blocks/profile/__info-name/profile__info-name.css";
+@import "blocks/profile/__info-vocation/profile__info-vocation.css";
+@import "blocks/profile/__edit-button/profile__edit-button.css";
+@import "blocks/profile/__avatar-and-info/profile__avatar-and-info.css";
+@import "blocks/profile/__add-place-button/profile__add-place-button.css";
+
+@import "blocks/elements/elements.css";
+@import "blocks/element/element.css";
+@import "blocks/element/__image/element__image.css";
+@import "blocks/element/__place-and-like/element__place-and-like.css";
+@import "blocks/element/__like/element__like.css";
+@import "blocks/element/__like/_active/element__like_active.css";
+@import "blocks/element/__place/element__place.css";
+@import "blocks/element/__basket/element__basket.css";
+@import "blocks/element/__like-wrapper/element__like-wrapper.css";
+@import "blocks/element/__likes-number/element__likes-number.css";
+
+@import "blocks/footer/footer.css";
+@import "blocks/footer/__copyright/footer__copyright.css";
+
+@import "blocks/popup/popup.css";
+@import "blocks/popup/_image-overlay/_image-overlay.css";
+@import "blocks/popup/__container/popup__container.css";
+@import "blocks/popup/_no-background/popup__container_no-background.css";
+@import "blocks/popup/__close-icon/popup__close-icon.css";
+@import "blocks/popup/_opened/popup_opened.css";
+@import "blocks/form/__title/form__title.css";
+@import "blocks/form/__title/_dark-theme/form__title_dark-theme.css";
+@import "blocks/form/form.css";
+@import "blocks/form/__field/form__field.css";
+@import "blocks/form/__button-submit/form__button-submit.css";
+@import "blocks/form/__button-submit/_disabled/form__button-submit_disabled.css";
+@import "blocks/form/__button-submit/form__button-submit.css";
+@import "blocks/form/__button-submit/_dark-theme/form__submit-button_dark-theme.css";
+@import "blocks/form/__error/form__error.css";
+@import "blocks/form/__field/_invalid/form_field-invalid.css";
+@import "blocks/form/__field-wrapper/form__field-wrapper.css";
+@import "blocks/form/__submit-wrapper/form__submit-wrapper.css";
+@import "blocks/form/__field/_dark-theme/form__field_dark-theme.css";
+@import "blocks/form/__error/_dark-theme/form__error_dark-theme.css";
+@import "blocks/form/__submit-description/form__submit-description.css";
+@import "blocks/form/__submit-description-link/form__submit-description-link.css";
+
+@import "blocks/tooltip/tooltip.css";
+@import "blocks/tooltip/__title/tooltip__title.css";
+@import "blocks/tooltip/__image/tooltip__image.css";
+
+@import "blocks/place-info/place-info.css";
+@import "blocks/place-info/__title/place-info__title.css";
+@import "blocks/place-info/__image/place-info__image.css";
+
+@import "blocks/sign/sign.css";
+@import "blocks/login-link/login-link.css";
+
+body {
+  background-color: #000000;
+}

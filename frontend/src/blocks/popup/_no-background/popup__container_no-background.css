@@ -1,0 +1,5 @@
+.popup__container_no-background {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}

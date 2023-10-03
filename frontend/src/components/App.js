@@ -223,12 +223,12 @@ function App() {
                                           onAddPlace={handleAddPlaceClick}
                                           onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}
                                           onCardLike={handleCardLike} onCardDelete={handleCardDelete}
-                                          loggedIn={loggedIn}/> : <Navigate to="/sign-in" replace/>}/>
-          <Route path="sign-in" element={<Login onLogin={handleLogin}/>}/>
+                                          loggedIn={loggedIn}/> : <Navigate to="/signin" replace/>}/>
+          <Route path="signin" element={<Login onLogin={handleLogin}/>}/>
 
-          <Route path="sign-up" element={<Register onRegister={handleRegister}/>}/>
+          <Route path="signup" element={<Register onRegister={handleRegister}/>}/>
 
-          <Route path="sign-out" element={<SignOut onSignOut={handleSignOut}/>}/>
+          <Route path="signout" element={<SignOut onSignOut={handleSignOut}/>}/>
 
 
         </Routes>

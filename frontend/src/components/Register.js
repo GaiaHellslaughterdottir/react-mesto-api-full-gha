@@ -44,7 +44,7 @@ export default function Register(props) {
         <div className="form__submit-wrapper">
           <button className="form__button-submit form__submit-button_dark-theme" type="submit">Зарегистрироваться</button>
           <p className="form__submit-description">
-            Уже зарегистрированы? {<Link to="/sign-in" className="form__submit-description-link">Войти</Link>}</p>
+            Уже зарегистрированы? {<Link to="/signin" className="form__submit-description-link">Войти</Link>}</p>
         </div>
       </form>
     </div>

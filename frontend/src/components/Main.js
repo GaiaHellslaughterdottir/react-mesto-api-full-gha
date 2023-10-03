@@ -5,13 +5,18 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 export default function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
+  let avatarImg = undefined;
+  if (currentUser !== undefined && currentUser.avatar !== undefined) {
+    avatarImg = currentUser.avatar;
+  }
+
   return (
     <main className="main">
 
       <section className="profile">
         <div className="profile__avatar-and-info">
           <div className="profile__avatar-wrapper">
-            <div className="avatar" style={{backgroundImage: `url(${currentUser.avatar})`}}/>
+            <div className="avatar" style={avatarImg && {backgroundImage: `url(${avatarImg})`}}/>
             <button className="profile__avatar-button" onClick={props.onEditAvatar}/>
           </div>
 

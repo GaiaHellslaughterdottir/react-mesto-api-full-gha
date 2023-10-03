@@ -15,6 +15,7 @@ import {auth} from "../utils/auth";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 import ProtectedRouteElement from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
+import SignOut from "./SignOut";
 
 function App() {
 
@@ -38,22 +39,34 @@ function App() {
     if (token !== null && !loggedIn) {
       setLoggedIn(true);
       getAuthUserInfo(token);
-      navigate('/', {replace: true});
-    }
-
-     return () => {
-      Promise.all([api.getUserProfileInfo(), api.getInitialCards()])
-        .then(([userInfo, cardList]) => {
-          setCurrentUser(userInfo);
-          if (cardList.length > 0) {
-            setCards(cardList);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
     }
   }, []);
+
+  React.useEffect(() => {
+    if(loggedIn) {
+        api.getInitialCards()
+          .then((cardList) => {
+            if (cardList.length > 0) {
+              setCards(cardList);
+            }
+            navigate('/', {replace: true});
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+  }, [userInfo]);
+
+  function getAuthUserInfo(token) {
+    auth.getUserInfo(token)
+      .then((userInfo) => {
+        setUserInfo(userInfo);
+        setCurrentUser(userInfo);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   React.useEffect(() => {
     function closeByEscape(evt) {
@@ -144,7 +157,7 @@ function App() {
         localStorage.setItem('token', token);
         setLoggedIn(true);
         getAuthUserInfo(token);
-        navigate('/', {replace: true});
+        window.location.replace('/')
       })
       .catch((err) => {
         console.log(err);
@@ -188,15 +201,14 @@ function App() {
       });
   }
 
-  function getAuthUserInfo(token) {
-    auth.getUserInfo(token)
-      .then((userInfo) => {
-        setUserInfo(userInfo);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  function handleSignOut() {
+    localStorage.removeItem('token');
+    setUserInfo({});
+    setCurrentUser({});
+    setLoggedIn(false);
+    navigate('/', {replace: true});
   }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -212,9 +224,12 @@ function App() {
                                           onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}
                                           onCardLike={handleCardLike} onCardDelete={handleCardDelete}
                                           loggedIn={loggedIn}/> : <Navigate to="/sign-in" replace/>}/>
-          <Route path="/sign-in" element={<Login onLogin={handleLogin}/>}/>
+          <Route path="sign-in" element={<Login onLogin={handleLogin}/>}/>
 
-          <Route path="/sign-up" element={<Register onRegister={handleRegister}/>}/>
+          <Route path="sign-up" element={<Register onRegister={handleRegister}/>}/>
+
+          <Route path="sign-out" element={<SignOut onSignOut={handleSignOut}/>}/>
+
 
         </Routes>
 

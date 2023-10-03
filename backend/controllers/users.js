@@ -19,7 +19,7 @@ module.exports.postUser = (req, res, next) => {
         const fieldName = '_doc';
         const userData = user[fieldName];
         delete userData.password;
-        res.send( userData );
+        res.send(userData);
       })
       .catch((err) => {
         if (err.name === 'ValidationError') {
@@ -37,7 +37,7 @@ module.exports.postUser = (req, res, next) => {
 
 module.exports.getUserList = (req, res, next) => {
   User.find({})
-    .then((user) => res.send( user ))
+    .then((user) => res.send(user))
     .catch((err) => {
       next(err);
     });
@@ -49,7 +49,7 @@ module.exports.getUserById = (req, res, next) => {
       if (user == null) {
         throw new NotFoundError('Такой пользователь не найден');
       }
-      return res.send( user );
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -66,7 +66,7 @@ module.exports.getCurrentUser = (req, res, next) => {
       if (user == null) {
         throw new NotFoundError('Такой пользователь не найден');
       }
-      return res.send( user );
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -82,7 +82,7 @@ module.exports.updateProfile = (req, res, next) => {
 
   User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
     .then((user) => (
-      res.send( user )))
+      res.send(user)))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Данные пользователя введены некорректно'));
@@ -97,7 +97,7 @@ module.exports.updateAvatar = (req, res, next) => {
 
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
     .then((user) => (
-      res.send( user )))
+      res.send(user)))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Данные пользователя введены некорректно'));

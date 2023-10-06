@@ -13,4 +13,4 @@ IP 45.140.19.114
 
 Frontend https://564148.msk-kvm.ru
 
-Backend https://564148.msk-kvm.ru/backend
+Backend https://backend.564148.msk-kvm.ru

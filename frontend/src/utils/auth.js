@@ -59,5 +59,5 @@ export default class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: 'https://564148.msk-kvm.ru/backend',
+  baseUrl: 'https://backend.564148.msk-kvm.ru/',
 });

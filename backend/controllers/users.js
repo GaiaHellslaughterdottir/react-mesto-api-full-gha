@@ -114,20 +114,28 @@ module.exports.login = (req, res, next) => {
       if (!user) {
         return Promise.reject(new Error('Неправильные почта или пароль'));
       }
-      if (!bcrypt.compare(password, user.password)) {
-        return Promise.reject(new Error('Неправильные почта или пароль'));
-      }
-      const token = jwt.sign(
-        { _id: user._id },
-        process.env.NODE_ENV !== 'production' ? 'some-secret-key' : process.env.JWT_SECRET,
-        { expiresIn: '7d' },
-      );
-      return res.cookie('jwt', token, {
-        maxAge: 604800000,
-        httpOnly: true,
-      })
-        .send({ token })
-        .end();
+      bcrypt.compare(password, user.password)
+        .then((result) => {
+          if (!result) {
+            return Promise.reject(new Error('Неправильные почта или пароль'));
+          }
+          const token = jwt.sign(
+            { _id: user._id },
+            process.env.NODE_ENV !== 'production' ? 'some-secret-key' : process.env.JWT_SECRET,
+            { expiresIn: '7d' },
+          );
+          return res.cookie('jwt', token, {
+            maxAge: 604800000,
+            httpOnly: true,
+          })
+            .send({ token })
+            .end();
+        })
+        .catch((err) => {
+          console.log(err);
+          next(new UnauthorizedError('Логин или пароль пользователя введены неверно'));
+        });
+      return true;
     })
     .catch((err) => {
       console.log(err);

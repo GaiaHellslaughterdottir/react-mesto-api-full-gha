@@ -34,7 +34,7 @@ export default function Login(props) {
                  onChange={e => setPassword(e.target.value)}
                  minLength="2"
                  maxLength="200"
-                 type="text"
+                 type="password"
                  name="password"
                  className="form__field  form__field_dark-theme"
                  id="form__field-password"

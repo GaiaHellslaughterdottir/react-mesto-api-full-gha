@@ -8,8 +8,8 @@ export default function Header(props) {
     <header className="header">
       <div className="logo"/>
       <div className="header__wrapper">
-        {props.loggedIn && props.userInfo.data !== undefined &&
-        <p className="header__email">{props.userInfo.data.email}</p>}
+        {props.loggedIn && props.userInfo !== undefined &&
+        <p className="header__email">{props.userInfo.email}</p>}
         <Routes>
           <Route exact path="/" element={<Link to="signout" className="login-link">Выйти</Link>}/>
           <Route path="/signup" element={<Link to="/signin" className="login-link">Войти</Link>}/>
